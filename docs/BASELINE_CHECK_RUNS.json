@@ -1,0 +1,37 @@
+{
+ "build": "JY-S010-P001/upgrade-0.1.1-partial/run-0001",
+ "environment": {
+  "executor": "claude cowork session 01SaQzDRzMFXvRabmCC6JDJD (claude-fable-5)",
+  "python": "3.11.15",
+  "platform": "Linux-6.18.44-fc-v24-x86_64-with-glibc2.39",
+  "location": "Anthropic cloud container (Linux)"
+ },
+ "checks": [
+  {
+   "id": "baseline-unit-tests",
+   "command": "python3 -m unittest discover -s tests -t .",
+   "result": "PASS 11/11 (baseline 0.1.0-partial)",
+   "captured_at": "2026-09-14T18:50:22.245103+00:00"
+  },
+  {
+   "id": "audit-probes",
+   "command": "live probes: async-method extraction (A011-F1), finding/input aliasing (A011-F2), digest splicing (not API-reachable), null-byte parse contract (handled)",
+   "result": "2 defects reproduced, both fixed",
+   "captured_at": "2026-09-14T18:50:22.245103+00:00"
+  },
+  {
+   "id": "candidate-unit-tests",
+   "command": "python3 -m unittest discover -s tests -t .",
+   "result": "PASS 16/16 (candidate 0.1.1-partial, final bytes)",
+   "captured_at": "2026-09-14T18:50:22.245103+00:00"
+  }
+ ],
+ "unrun_checks": [
+  "Windows-native launch UNRUN — no Windows runtime this session",
+  "independent review NOT PERFORMED",
+  "WP-00..WP-14 full scope",
+  "Accept/Prove/Close transitions",
+  "production-promotion items"
+ ],
+ "note": "Evidence current for these inputs on this host only."
+}
